@@ -1,9 +1,10 @@
-% Function that takes an input .msh file and an int and
-% returns the node numbers for each node for the 2D element of that int
+% Function that takes an input .msh file (inputFile), an int (dim) and an 
+% int (elementNum) and returns the node numbers for each node for the 
+% element of that int.
 %
 % Function by Travis Zook (tjzook2) - AE 420, Fall 2021
 
-function nodes = IsolateNodes2D(inputFile,elementNum)
+function nodes = IsolateNodes(inputFile,dim,elementNum)
 
 lines = readlines(inputFile);
 
@@ -30,7 +31,7 @@ for j = NodeStart:NodeEnd
 
     lineStr = lines(j,:);
     lineNum = str2num(lineStr);
-    if length(lineNum) == 4 && lineNum(1) == 2 && lineNum(2) == elementNum
+    if length(lineNum) == 4 && lineNum(1) == dim && lineNum(2) == elementNum
         
         numNodes = lineNum(4);
         count = 1;
