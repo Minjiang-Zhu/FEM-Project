@@ -1,10 +1,9 @@
+function nodes = IsolateNodes(inputFile,dim,elementNum)
 % Function that takes an input .msh file (inputFile), an int (dim) and an 
 % int (elementNum) and returns the node numbers for each node for the 
 % element of that int.
 %
 % Function by Travis Zook (tjzook2) - AE 420, Fall 2021
-
-function nodes = IsolateNodes(inputFile,dim,elementNum)
 
 lines = readlines(inputFile);
 
