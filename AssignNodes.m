@@ -1,4 +1,4 @@
-function nodes = AssignNodes(inputFile)
+function Nodes = AssignNodes(inputFile)
 % Function that takes a .msh input file and returns a Nx3 array of the
 % nodal coordinates, where N = the number of nodes in the structure.
 %
@@ -34,6 +34,6 @@ for j = NodeStart:NodeEnd
     end
 end
 
-nodes = nodeCoords;
-    
+Nodes = nodeCoords;
+
 end
