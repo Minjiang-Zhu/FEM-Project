@@ -32,13 +32,14 @@ elseif order == 2
     NNodes = 10;
 end
 
+NNodes1 = NNodes + 1;
 % Construct nodal mapping to element
 map = zeros(ElementEnd-ElementStart,NNodes);
 count = 0;
 for i = ElementStart:ElementEnd
     lineStr = lines(i,:);
     lineNum = str2num(lineStr);
-    if size(lineNum,2) == NNodes + 1
+    if size(lineNum,2) == NNodes1
         count = count + 1;
         map(count,:) = lineNum(2:end);
     end
