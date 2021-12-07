@@ -1,5 +1,5 @@
 function map = AssignMap(inputFile, order)
-% Function that takes a .msh input file and returns a Nx4 array of the
+% Function that takes a .msh input file and returns an array of the
 % Element mappings, where N = the number of elements in the structure.
 %
 % Function by Travis Zook (tjzook2) - AE 420, Fall 2021
@@ -9,8 +9,6 @@ function map = AssignMap(inputFile, order)
 lines = readlines(inputFile);
 
 % Determine start and end of Elements section
-ElementStart = 1;
-ElementEnd = 1;
 for i = 1:length(lines)
     
     line = lines(i,:);
@@ -46,5 +44,5 @@ for i = ElementStart:ElementEnd
 end
 
 map = map(1:count,:);
-    
+
 end
