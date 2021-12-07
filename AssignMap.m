@@ -1,9 +1,10 @@
+function map = AssignMap(inputFile, order)
 % Function that takes a .msh input file and returns a Nx4 array of the
 % Element mappings, where N = the number of elements in the structure.
 %
 % Function by Travis Zook (tjzook2) - AE 420, Fall 2021
-
-function map = AssignMap(inputFile)
+% Modified by Matthew Minjinag Zhu on Dec. 16, 2021 to fit mesh file with 
+% second-order elements
 
 lines = readlines(inputFile);
 
@@ -25,19 +26,24 @@ for i = 1:length(lines)
     
 end
 
+if order == 1
+    NNodes = 4;
+elseif order == 2
+    NNodes = 10;
+end
+
 % Construct nodal mapping to element
-elementMap = [];
-for j = ElementStart:ElementEnd
-    lineStr = lines(j,:);
+map = zeros(ElementEnd-ElementStart,NNodes);
+count = 0;
+for i = ElementStart:ElementEnd
+    lineStr = lines(i,:);
     lineNum = str2num(lineStr);
-    if length(lineNum) == 5
-        elementMap = [ elementMap;lineNum ];
+    if size(lineNum,2) == NNodes + 1
+        count = count + 1;
+        map(count,:) = lineNum(2:end);
     end
 end
 
-% Delete first column
-elementMap(:,1) = [];
-
-map = elementMap;
+map = map(1:count,:);
     
 end
