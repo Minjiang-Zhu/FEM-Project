@@ -1,9 +1,8 @@
+function nodes = AssignNodes(inputFile)
 % Function that takes a .msh input file and returns a Nx3 array of the
 % nodal coordinates, where N = the number of nodes in the structure.
 %
 % Function by Travis Zook (tjzook2) - AE 420, Fall 2021
-
-function nodes = AssignNodes(inputFile)
 
 lines = readlines(inputFile);
 
