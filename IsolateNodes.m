@@ -8,8 +8,6 @@ function nodes = IsolateNodes(inputFile,dim,elementNum)
 lines = readlines(inputFile);
 
 % Determine start and end of Nodes section
-NodeStart = 1;
-NodeEnd = 1;
 for i = 1:length(lines)
     
     line = lines(i,:);
